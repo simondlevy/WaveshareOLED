@@ -73,10 +73,6 @@ void setup()  {
   
   testtriangles();
   delay(1000);
-
- // oled.Fill_Color(BLUE);
-
-  
 }
 
 
@@ -274,9 +270,3 @@ void testtriangles(void)  {
     oled.Set_Color(color);
   }
 }
-
-
-
-
-
-

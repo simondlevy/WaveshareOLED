@@ -537,28 +537,4 @@ void OLED_Driver::Display_Interface(void) {
       Write_Data(color_byte[1]);
     }
   }
-
-  
-/*
-  Set_Coordinate(0,15);
-  for(i = 0 ; i < 22 ; i++)  {
-    for(j = 0; j < 128; j++) {
-      if((interface_2[(i*128+j)/8]>>((i*128+j)%8))&0x01)  {
-        if((i*128+j)<128*12)
-          color = GREEN+((i*128+j)<<11);
-        else if((i*128+j)<128*40)
-          color = CYAN;
-        else
-          color = RED+(i*128+j)-128*40;
-      }
-      else  {
-        color = BLACK;
-      }
-      Set_Color(color);
-      Write_Data(color_byte[0]);
-      Write_Data(color_byte[1]);
-    }
-  }*/
-
 }
-    
