@@ -4,7 +4,7 @@
 #include <SPI.h>
 #include <Wire.h>
 
-OLED_GFX oled = OLED_GFX();
+OLED_GFX oled;
 
 void setup()  {
 
