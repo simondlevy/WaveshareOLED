@@ -8,7 +8,7 @@ static const uint8_t CS  = 5;
 static const uint8_t RST = 21;
 static const uint8_t DC  = 22;
 
-OLED_GFX oled = OLED_GFX();
+OLED_GFX oled;
 
 void setup()  {
 
