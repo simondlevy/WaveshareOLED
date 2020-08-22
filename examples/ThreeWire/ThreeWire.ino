@@ -16,19 +16,8 @@ void setup()  {
   //Init UART
   Serial.begin(115200);
 
-#if INTERFACE_4WIRE_SPI
-  //Init SPI
-  SPI.setDataMode(SPI_MODE0);
-  SPI.setBitOrder(MSBFIRST);
-  SPI.setClockDivider(SPI_CLOCK_DIV2);
-  SPI.begin();
-
-#elif INTERFACE_3WIRE_SPI
-
   pinMode(oled_sck, OUTPUT);
   pinMode(oled_din, OUTPUT);
-
-#endif
 
   oled.Device_Init();
   
