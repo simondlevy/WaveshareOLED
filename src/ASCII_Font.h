@@ -1,5 +1,4 @@
-#ifndef __ASCII_CODE__8X16_5X8_VERTICAL_H
-#define __ASCII_CODE__8X16_5X8_VERTICAL_H
+#pragma once
 
 const unsigned char ascii_table_8x16[95][16] =  {
 
@@ -318,10 +317,3 @@ const unsigned char interface_text2[] = {
 0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x08,
 0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x06,
 };
-
-
-
-
-
-
-#endif /*__ASCII_CODE__8X16_5X8_VERTICAL_H*/

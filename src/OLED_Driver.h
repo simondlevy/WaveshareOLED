@@ -1,5 +1,4 @@
-#ifndef __OLED_DRIVER_H
-#define __OLED_DRIVER_H
+#pragma once
 
 #include "stdlib.h"
 #include "SPI.h"
@@ -103,8 +102,3 @@ extern uint8_t color_byte[2],color_fill_byte[2];
       void RAM_Address(void);
 
   };
-
-
-
-  
-#endif

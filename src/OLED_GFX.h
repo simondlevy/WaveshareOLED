@@ -1,6 +1,4 @@
-#ifndef __OLED_GFX_H
-#define __OLED_GFX_H
-
+#pragma once
 
 #include "OLED_Driver.h"
 
@@ -42,6 +40,3 @@ class OLED_GFX : public virtual OLED_Driver {
     static void swap(int16_t & a, int16_t & b);
 
   };
-  
-
-#endif
