@@ -4,14 +4,18 @@
 #include <SPI.h>
 #include <Wire.h>
 
+static const uint8_t CS  = 5;
+static const uint8_t RST = 21;
+static const uint8_t DC  = 22;
+
 OLED_GFX oled = OLED_GFX();
 
 void setup()  {
 
   //Init GPIO
-  pinMode(oled_cs, OUTPUT);
-  pinMode(oled_rst, OUTPUT);
-  pinMode(oled_dc, OUTPUT);
+  pinMode(CS, OUTPUT);
+  pinMode(RST, OUTPUT);
+  pinMode(DC, OUTPUT);
 
   //Init UART
   Serial.begin(115200);
