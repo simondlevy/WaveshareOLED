@@ -2,7 +2,6 @@
 #include "OLED_GFX.h"
 
 #include <SPI.h>
-#include <Wire.h>
 
 static const uint8_t CS  = 5;
 static const uint8_t RST = 21;

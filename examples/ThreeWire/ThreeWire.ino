@@ -7,6 +7,8 @@
 static const uint8_t CS  = 5;
 static const uint8_t RST = 21;
 static const uint8_t DC  = 22;
+static const uint8_t SCK = 18;
+static const uint8_t DIN = 23;
 
 OLED_GFX oled;
 
@@ -21,8 +23,8 @@ void setup()  {
   Serial.begin(115200);
 
   //Init SPI
-  pinMode(oled_sck, OUTPUT);
-  pinMode(oled_din, OUTPUT);
+  pinMode(SCK, OUTPUT);
+  pinMode(DIN, OUTPUT);
 
   oled.Device_Init();
   
