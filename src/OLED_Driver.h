@@ -45,13 +45,6 @@ extern uint8_t color_byte[2],color_fill_byte[2];
 #define SSD1351_CMD_STOPSCROLL      0x9E
 #define SSD1351_CMD_STARTSCROLL     0x9F
 
-
-#define oled_cs   5
-#define oled_rst  21
-#define oled_dc   22
-#define oled_sck  18
-#define oled_din  23
-
 #define BLACK   0x0000
 #define BLUE    0x001F
 #define RED     0xF800
@@ -70,8 +63,6 @@ extern uint8_t color_byte[2],color_fill_byte[2];
       void OLED_CS(uint8_t x);
       void OLED_RST(uint8_t x);
       void OLED_DC(uint8_t x);
-      inline void OLED_SCK(uint8_t x);
-      inline void OLED_DIN(uint8_t x);
       
       void begin(void);
       void Clear_Screen(void);

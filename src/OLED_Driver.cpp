@@ -5,7 +5,6 @@
 
 uint8_t color_byte[2],color_fill_byte[2];
 
-
 OLED_Driver::OLED_Driver(uint8_t cs_pin, uint8_t rst_pin, uint8_t dc_pin)  {
 
     _cs_pin = cs_pin;
@@ -15,32 +14,20 @@ OLED_Driver::OLED_Driver(uint8_t cs_pin, uint8_t rst_pin, uint8_t dc_pin)  {
 
 void OLED_Driver::OLED_CS(uint8_t x)  {
 
-  digitalWrite(oled_cs, x);
+  digitalWrite(_cs_pin, x);
 }
 
 void OLED_Driver::OLED_RST(uint8_t x) {
 
-  digitalWrite(oled_rst, x);
+  digitalWrite(_rst_pin, x);
 }
 
 void OLED_Driver::OLED_DC(uint8_t x)  {
 
-  digitalWrite(oled_dc, x);
+  digitalWrite(_dc_pin, x);
 }
-
-inline void OLED_Driver::OLED_SCK(uint8_t x) {
-
-  digitalWrite(oled_sck, x);
-}
-inline void OLED_Driver::OLED_DIN(uint8_t x) {
-
-  digitalWrite(oled_din, x);
-}
-
 
 void OLED_Driver::Write_Command(uint8_t cmd)  {
-
-//  OLED_CS(LOW);
 
   OLED_DC(LOW);
   SPI.transfer(cmd);
