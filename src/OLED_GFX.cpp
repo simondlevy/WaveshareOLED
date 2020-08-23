@@ -6,7 +6,7 @@
 OLED_GFX::OLED_GFX(uint8_t cs_pin, uint8_t rst_pin, uint8_t dc_pin)  
     : OLED_Driver(cs_pin, rst_pin, dc_pin) 
 {
-    }
+}
 
 void OLED_GFX::Set_Color_And_Write(uint16_t color)
 {

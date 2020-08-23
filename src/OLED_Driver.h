@@ -2,9 +2,6 @@
 
 #include "SPI.h"
 
-#define SSD1351_WIDTH   128
-#define SSD1351_HEIGHT  128
-
 #define SSD1351_CMD_SETCOLUMN       0x15
 #define SSD1351_CMD_SETROW          0x75
 #define SSD1351_CMD_WRITERAM        0x5C
@@ -46,50 +43,53 @@
 #define YELLOW  0xFFE0
 #define WHITE   0xFFFF
 
-  class OLED_Driver {
-    
+class OLED_Driver {
+
     public: 
 
-      OLED_Driver(uint8_t cs_pin, uint8_t rst_pin, uint8_t dc_pin);
+        static const uint8_t SSD1351_WIDTH   = 128;
+        static const uint8_t SSD1351_HEIGHT  = 128;
 
-      void begin(void);
-      void Clear_Screen(void);
-      void Fill_Color(uint16_t color);
-      void Set_Coordinate(uint16_t x, uint16_t y);
+        OLED_Driver(uint8_t cs_pin, uint8_t rst_pin, uint8_t dc_pin);
 
-      void Write_text(uint8_t data1);
-      void Set_Address(uint8_t column, uint8_t row);
-      
-      void Set_Color(uint16_t color);
-      void Set_FillColor(uint16_t color);
-    
-      void Invert(bool v);
-      void Draw_Pixel(int16_t x, int16_t y);
-      
-      void Write_Command(uint8_t dat);
-      void Write_Data(uint8_t dat);
-      void Write_Data(uint8_t* dat_p, int length);
-      
-      void Draw_FastHLine(int16_t x, int16_t y, int16_t length);
-      void Draw_FastVLine(int16_t x, int16_t y, int16_t length);
-      
-      void Display_bmp(void);
-      void Display_Interface(void);
+        void begin(void);
+        void Clear_Screen(void);
+        void Fill_Color(uint16_t color);
+        void Set_Coordinate(uint16_t x, uint16_t y);
+
+        void Write_text(uint8_t data1);
+        void Set_Address(uint8_t column, uint8_t row);
+
+        void Set_Color(uint16_t color);
+        void Set_FillColor(uint16_t color);
+
+        void Invert(bool v);
+        void Draw_Pixel(int16_t x, int16_t y);
+
+        void Write_Command(uint8_t dat);
+        void Write_Data(uint8_t dat);
+        void Write_Data(uint8_t* dat_p, int length);
+
+        void Draw_FastHLine(int16_t x, int16_t y, int16_t length);
+        void Draw_FastVLine(int16_t x, int16_t y, int16_t length);
+
+        void Display_bmp(void);
+        void Display_Interface(void);
 
     protected:
-      
+
         uint8_t color_byte[2];
         uint8_t color_fill_byte[2];
 
     private:  
 
-      uint8_t _cs_pin;
-      uint8_t _rst_pin;
-      uint8_t _dc_pin;
-      
-      void RAM_Address(void);
+        uint8_t _cs_pin;
+        uint8_t _rst_pin;
+        uint8_t _dc_pin;
 
-      void OLED_CS(uint8_t x);
-      void OLED_RST(uint8_t x);
-      void OLED_DC(uint8_t x);
-  };
+        void RAM_Address(void);
+
+        void OLED_CS(uint8_t x);
+        void OLED_RST(uint8_t x);
+        void OLED_DC(uint8_t x);
+};

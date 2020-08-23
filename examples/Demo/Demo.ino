@@ -11,45 +11,45 @@ static void testlines(void)
 {
     oled.Set_Color(RED);
     oled.Clear_Screen();
-    for (uint16_t x=0; x <= SSD1351_WIDTH - 1; x+=6)  {
-        oled.Draw_Line(0, 0, x, SSD1351_HEIGHT - 1);
+    for (uint16_t x=0; x <= OLED_GFX::SSD1351_WIDTH - 1; x+=6)  {
+        oled.Draw_Line(0, 0, x, OLED_GFX::SSD1351_HEIGHT - 1);
         delay(10);
     }
-    for (uint16_t y=0; y < SSD1351_HEIGHT - 1; y+=6)  {
-        oled.Draw_Line(0, 0, SSD1351_WIDTH - 1, y);
+    for (uint16_t y=0; y < OLED_GFX::SSD1351_HEIGHT - 1; y+=6)  {
+        oled.Draw_Line(0, 0, OLED_GFX::SSD1351_WIDTH - 1, y);
         delay(10);
     }
 
     oled.Set_Color(YELLOW);
     oled.Clear_Screen();
-    for (uint16_t x=0; x < SSD1351_WIDTH - 1; x+=6) {
-        oled.Draw_Line(SSD1351_WIDTH - 1, 0, x, SSD1351_HEIGHT - 1);
+    for (uint16_t x=0; x < OLED_GFX::SSD1351_WIDTH - 1; x+=6) {
+        oled.Draw_Line(OLED_GFX::SSD1351_WIDTH - 1, 0, x, OLED_GFX::SSD1351_HEIGHT - 1);
         delay(10);
     }
-    for (uint16_t y=0; y < SSD1351_HEIGHT - 1; y+=6) {
-        oled.Draw_Line(SSD1351_WIDTH - 1, 0, 0, y);
+    for (uint16_t y=0; y < OLED_GFX::SSD1351_HEIGHT - 1; y+=6) {
+        oled.Draw_Line(OLED_GFX::SSD1351_WIDTH - 1, 0, 0, y);
         delay(10);
     }
 
     oled.Set_Color(BLUE);
     oled.Clear_Screen();
-    for (uint16_t x=0; x < SSD1351_WIDTH - 1; x+=6) {
-        oled.Draw_Line(0, SSD1351_HEIGHT - 1, x, 0);
+    for (uint16_t x=0; x < OLED_GFX::SSD1351_WIDTH - 1; x+=6) {
+        oled.Draw_Line(0, OLED_GFX::SSD1351_HEIGHT - 1, x, 0);
         delay(10);
     }
-    for (uint16_t y=0; y < SSD1351_HEIGHT - 1; y+=6) {
-        oled.Draw_Line(0, SSD1351_HEIGHT - 1, SSD1351_WIDTH - 1, y);
+    for (uint16_t y=0; y < OLED_GFX::SSD1351_HEIGHT - 1; y+=6) {
+        oled.Draw_Line(0, OLED_GFX::SSD1351_HEIGHT - 1, OLED_GFX::SSD1351_WIDTH - 1, y);
         delay(10);
     }
 
     oled.Set_Color(GREEN);
     oled.Clear_Screen();
-    for (uint16_t x=0; x < SSD1351_WIDTH - 1; x+=6) {
-        oled.Draw_Line(SSD1351_WIDTH - 1, SSD1351_HEIGHT - 1, x, 0 );
+    for (uint16_t x=0; x < OLED_GFX::SSD1351_WIDTH - 1; x+=6) {
+        oled.Draw_Line(OLED_GFX::SSD1351_WIDTH - 1, OLED_GFX::SSD1351_HEIGHT - 1, x, 0 );
         delay(10);
     }
-    for (uint16_t y=0; y < SSD1351_HEIGHT - 1; y+=6) {
-        oled.Draw_Line(SSD1351_WIDTH - 1, SSD1351_HEIGHT - 1, 0, y);
+    for (uint16_t y=0; y < OLED_GFX::SSD1351_HEIGHT - 1; y+=6) {
+        oled.Draw_Line(OLED_GFX::SSD1351_WIDTH - 1, OLED_GFX::SSD1351_HEIGHT - 1, 0, y);
         delay(10);
     }
 }
@@ -94,12 +94,12 @@ static void testfastlines(void)
     oled.Set_Color(WHITE);
     oled.Clear_Screen();
 
-    for (uint16_t y=0; y < SSD1351_WIDTH - 1; y+=5) {
-        oled.Draw_FastHLine(0, y, SSD1351_WIDTH - 1);
+    for (uint16_t y=0; y < OLED_GFX::SSD1351_WIDTH - 1; y+=5) {
+        oled.Draw_FastHLine(0, y, OLED_GFX::SSD1351_WIDTH - 1);
         delay(10);
     }
-    for (uint16_t x=0; x < SSD1351_HEIGHT - 1; x+=5) {
-        oled.Draw_FastVLine(x, 0, SSD1351_HEIGHT - 1);
+    for (uint16_t x=0; x < OLED_GFX::SSD1351_HEIGHT - 1; x+=5) {
+        oled.Draw_FastVLine(x, 0, OLED_GFX::SSD1351_HEIGHT - 1);
         delay(10);
     }
 }
@@ -107,21 +107,21 @@ static void testfastlines(void)
 void testdrawrects(void)  
 {
     oled.Clear_Screen();
-    for (uint16_t x=0; x < SSD1351_HEIGHT - 1; x+=6)  {
-        oled.Draw_Rect((SSD1351_WIDTH-1)/2 - x/2, (SSD1351_HEIGHT-1)/2 - x/2 , x, x);
+    for (uint16_t x=0; x < OLED_GFX::SSD1351_HEIGHT - 1; x+=6)  {
+        oled.Draw_Rect((OLED_GFX::SSD1351_WIDTH-1)/2 - x/2, (OLED_GFX::SSD1351_HEIGHT-1)/2 - x/2 , x, x);
         delay(10);
     }
 }
 
 static void testfillrects(uint16_t color1, uint16_t color2) 
 {
-    uint16_t x = SSD1351_HEIGHT - 1;
+    uint16_t x = OLED_GFX::SSD1351_HEIGHT - 1;
     oled.Clear_Screen();
     oled.Set_Color(color1);
     oled.Set_FillColor(color2);
     for(; x > 6; x-=6)  {
-        oled.Fill_Rect((SSD1351_WIDTH-1)/2 - x/2, (SSD1351_HEIGHT-1)/2 - x/2 , x, x);
-        oled.Draw_Rect((SSD1351_WIDTH-1)/2 - x/2, (SSD1351_HEIGHT-1)/2 - x/2 , x, x);
+        oled.Fill_Rect((OLED_GFX::SSD1351_WIDTH-1)/2 - x/2, (OLED_GFX::SSD1351_HEIGHT-1)/2 - x/2 , x, x);
+        oled.Draw_Rect((OLED_GFX::SSD1351_WIDTH-1)/2 - x/2, (OLED_GFX::SSD1351_HEIGHT-1)/2 - x/2 , x, x);
     }
 }
 
@@ -138,7 +138,7 @@ static void testdrawcircles(uint16_t color)
     uint8_t r = 0;
     oled.Set_Color(color);
 
-    for (; r < SSD1351_WIDTH/2; r+=4)  {
+    for (; r < OLED_GFX::SSD1351_WIDTH/2; r+=4)  {
         oled.Draw_Circle(64, 64, r);
         delay(10);
     }
@@ -148,7 +148,7 @@ static void testroundrects(void)
 {
     int color = 100;
     int x = 0, y = 0;
-    int w = SSD1351_WIDTH - 1, h = SSD1351_HEIGHT - 1;
+    int w = OLED_GFX::SSD1351_WIDTH - 1, h = OLED_GFX::SSD1351_HEIGHT - 1;
 
     oled.Clear_Screen();
 
@@ -169,10 +169,10 @@ static void testtriangles(void)
     oled.Clear_Screen();
     int color = 0xF800;
     int t;
-    int w = SSD1351_WIDTH/2;
-    int x = SSD1351_HEIGHT-1;
+    int w = OLED_GFX::SSD1351_WIDTH/2;
+    int x = OLED_GFX::SSD1351_HEIGHT-1;
     int y = 0;
-    int z = SSD1351_WIDTH;
+    int z = OLED_GFX::SSD1351_WIDTH;
     for(t = 0 ; t <= 15; t+=1) {
         oled.Draw_Triangle(w, y, y, x, z, x);
         x-=4;
