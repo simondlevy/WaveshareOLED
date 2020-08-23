@@ -16,9 +16,6 @@ void setup()  {
   pinMode(RST, OUTPUT);
   pinMode(DC, OUTPUT);
 
-  //Init UART
-  Serial.begin(115200);
-
   //Init SPI
   SPI.setDataMode(SPI_MODE0);
   SPI.setBitOrder(MSBFIRST);
