@@ -5,18 +5,6 @@
 #include <Arduino.h>
 #endif
 
-#if INTERFACE_4WIRE_SPI
-  #if INTERFACE_3WIRE_SPI
-    #error "SPI Setting Error !!"
-  #endif
-#elif INTERFACE_3WIRE_SPI
-
-#else
-  #error "SPI Setting Error !!"
-#endif
-
-
-
 uint8_t color_byte[2],color_fill_byte[2];
 
 
