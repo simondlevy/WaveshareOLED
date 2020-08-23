@@ -1,9 +1,8 @@
 #pragma once
 
-#include "stdlib.h"
 #include "SPI.h"
 
-extern uint8_t color_byte[2],color_fill_byte[2];
+extern uint8_t color_byte[2];
 
 #define SSD1351_WIDTH   128
 #define SSD1351_HEIGHT  128
@@ -78,7 +77,11 @@ extern uint8_t color_byte[2],color_fill_byte[2];
       
       void Display_bmp(void);
       void Display_Interface(void);
+
+    protected:
       
+        uint8_t color_fill_byte[2];
+
     private:  
 
       uint8_t _cs_pin;
