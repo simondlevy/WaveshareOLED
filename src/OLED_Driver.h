@@ -5,11 +5,6 @@
 
 extern uint8_t color_byte[2],color_fill_byte[2];
 
-//Enable 4WIRE-SPI or 3WIRE-SPI
-#define INTERFACE_4WIRE_SPI 1
-#define INTERFACE_3WIRE_SPI !(INTERFACE_4WIRE_SPI)
-
-
 #define SSD1351_WIDTH   128
 #define SSD1351_HEIGHT  128
 
@@ -60,10 +55,6 @@ extern uint8_t color_byte[2],color_fill_byte[2];
 
       OLED_Driver(uint8_t cs_pin, uint8_t rst_pin, uint8_t dc_pin);
 
-      void OLED_CS(uint8_t x);
-      void OLED_RST(uint8_t x);
-      void OLED_DC(uint8_t x);
-      
       void begin(void);
       void Clear_Screen(void);
       void Fill_Color(uint16_t color);
@@ -85,7 +76,6 @@ extern uint8_t color_byte[2],color_fill_byte[2];
       void Draw_FastHLine(int16_t x, int16_t y, int16_t length);
       void Draw_FastVLine(int16_t x, int16_t y, int16_t length);
       
-      
       void Display_bmp(void);
       void Display_Interface(void);
       
@@ -97,4 +87,7 @@ extern uint8_t color_byte[2],color_fill_byte[2];
       
       void RAM_Address(void);
 
+      void OLED_CS(uint8_t x);
+      void OLED_RST(uint8_t x);
+      void OLED_DC(uint8_t x);
   };
