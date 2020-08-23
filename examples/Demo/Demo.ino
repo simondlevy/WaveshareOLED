@@ -62,44 +62,28 @@ static void lcdTestPattern(void)
     for(i=0;i<128;i++)  {
         for(j=0;j<128;j++)  {
             if(i<16)  {
-                oled.Set_Color(RED);
-                oled.Write_Data(color_byte[0]);
-                oled.Write_Data(color_byte[1]);
+                oled.Set_Color_And_Write(RED);
             }
             else if(i<32) {
-                oled.Set_Color(YELLOW);
-                oled.Write_Data(color_byte[0]);
-                oled.Write_Data(color_byte[1]);
+                oled.Set_Color_And_Write(YELLOW);
             }
             else if(i<48) {
-                oled.Set_Color(GREEN);
-                oled.Write_Data(color_byte[0]);
-                oled.Write_Data(color_byte[1]);
+                oled.Set_Color_And_Write(GREEN);
             }
             else if(i<64) {
-                oled.Set_Color(CYAN);
-                oled.Write_Data(color_byte[0]);
-                oled.Write_Data(color_byte[1]);
+                oled.Set_Color_And_Write(CYAN);
             }
             else if(i<80) {
-                oled.Set_Color(BLUE);
-                oled.Write_Data(color_byte[0]);
-                oled.Write_Data(color_byte[1]);
+                oled.Set_Color_And_Write(BLUE);
             }
             else if(i<96) {
-                oled.Set_Color(MAGENTA);
-                oled.Write_Data(color_byte[0]);
-                oled.Write_Data(color_byte[1]);
+                oled.Set_Color_And_Write(MAGENTA);
             }
             else if(i<112)  {
-                oled.Set_Color(BLACK);
-                oled.Write_Data(color_byte[0]);
-                oled.Write_Data(color_byte[1]);
+                oled.Set_Color_And_Write(BLACK);
             }
             else {
-                oled.Set_Color(WHITE);
-                oled.Write_Data(color_byte[0]);
-                oled.Write_Data(color_byte[1]);
+                oled.Set_Color_And_Write(WHITE);
             }
         }
     }

@@ -17,12 +17,19 @@ void OLED_GFX::Set_FontSize(FONT_SIZE size) {
     Font_Size = size;
 }
 
+void OLED_GFX::Set_Color_And_Write(uint16_t color)
+{
+    Set_Color(color);
+    Write_Data(color_byte[0]);
+    Write_Data(color_byte[1]);
+}
+
 void OLED_GFX::print_String(uint8_t x, uint8_t y, const char *text, FONT_SIZE size) {
 
-  Font_Size = size;
+    Font_Size = size;
 
-  if(Font_Size == FONT_5X8) {
-    Display_String_5x8(x, y, text);
+    if(Font_Size == FONT_5X8) {
+        Display_String_5x8(x, y, text);
   }
   else if(Font_Size == FONT_8X16) {
     Display_String_8x16(x, y, text);

@@ -2,8 +2,6 @@
 
 #include "SPI.h"
 
-extern uint8_t color_byte[2];
-
 #define SSD1351_WIDTH   128
 #define SSD1351_HEIGHT  128
 
@@ -80,6 +78,7 @@ extern uint8_t color_byte[2];
 
     protected:
       
+        uint8_t color_byte[2];
         uint8_t color_fill_byte[2];
 
     private:  
