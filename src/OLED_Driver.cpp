@@ -176,6 +176,11 @@ void OLED_Driver::Draw_Pixel(int16_t x, int16_t y)
   
 void OLED_Driver::begin(void) {
 
+  SPI.setDataMode(SPI_MODE0);
+  SPI.setBitOrder(MSBFIRST);
+  SPI.setClockDivider(SPI_CLOCK_DIV2);
+  SPI.begin();
+
   OLED_CS(LOW);
   OLED_RST(LOW);
   delay(500);

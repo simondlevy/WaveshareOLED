@@ -15,12 +15,6 @@ void setup()  {
   pinMode(RST, OUTPUT);
   pinMode(DC, OUTPUT);
 
-  //Init SPI
-  SPI.setDataMode(SPI_MODE0);
-  SPI.setBitOrder(MSBFIRST);
-  SPI.setClockDivider(SPI_CLOCK_DIV2);
-  SPI.begin();
-
   oled.begin();
   
   oled.Display_Interface();
