@@ -3,7 +3,7 @@
 
 #include <Arduino.h>
 
-uint8_t color_byte[2],color_fill_byte[2];
+uint8_t color_byte[2];
 
 OLED_Driver::OLED_Driver(uint8_t cs_pin, uint8_t rst_pin, uint8_t dc_pin)  {
 
