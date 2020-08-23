@@ -1,3 +1,11 @@
+/*
+   Header code for Waveshare 1.5" RGB OLED display driver graphics
+
+   Copyright (C) Waveshare, Inc / Simon D. Levy 2020
+
+   MIT License
+ */
+
 #pragma once
 
 #include "OLED_Driver.h"

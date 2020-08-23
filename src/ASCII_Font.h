@@ -1,3 +1,11 @@
+/*
+Font tables for Waveshare 1.5" RGB OLED display
+
+Copyright (C) Waveshare, Inc
+
+MIT License
+*/
+
 #pragma once
 
 const unsigned char ascii_table_8x16[95][16] =  {

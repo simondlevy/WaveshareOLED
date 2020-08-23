@@ -1,3 +1,11 @@
+/*
+   Cool demonstration of the Waveshare 1.5" RGB OLED display
+
+   Copyright (C) Waveshare, Inc / Simon D. Levy 2020
+
+   MIT License
+ */
+
 #include "OLED_GFX.h"
 
 // Pins
