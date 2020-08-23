@@ -3,59 +3,56 @@
 
 #include <Arduino.h>
 
-uint8_t color_byte[2];
-
-OLED_Driver::OLED_Driver(uint8_t cs_pin, uint8_t rst_pin, uint8_t dc_pin)  {
-
+OLED_Driver::OLED_Driver(uint8_t cs_pin, uint8_t rst_pin, uint8_t dc_pin)  
+{
     _cs_pin = cs_pin;
     _rst_pin = rst_pin;
     _dc_pin = dc_pin;
 }
 
-void OLED_Driver::OLED_CS(uint8_t x)  {
-
+void OLED_Driver::OLED_CS(uint8_t x)  
+{
   digitalWrite(_cs_pin, x);
 }
 
-void OLED_Driver::OLED_RST(uint8_t x) {
-
+void OLED_Driver::OLED_RST(uint8_t x) 
+{
   digitalWrite(_rst_pin, x);
 }
 
-void OLED_Driver::OLED_DC(uint8_t x)  {
-
+void OLED_Driver::OLED_DC(uint8_t x)  
+{
   digitalWrite(_dc_pin, x);
 }
 
-void OLED_Driver::Write_Command(uint8_t cmd)  {
-
+void OLED_Driver::Write_Command(uint8_t cmd)  
+{
   OLED_DC(LOW);
   SPI.transfer(cmd);
   OLED_DC(HIGH);
 }
 
-void OLED_Driver::Write_Data(uint8_t dat) {
-
-
+void OLED_Driver::Write_Data(uint8_t dat) 
+{
   OLED_DC(HIGH);
   SPI.transfer(dat);
   OLED_DC(LOW);
 }
 
-void OLED_Driver::Set_Color(uint16_t color)  {
-  
+void OLED_Driver::Set_Color(uint16_t color)  
+{
   color_byte[0] = (uint8_t)(color >> 8);
   color_byte[1] = (uint8_t)(color & 0x00ff);
 }
 
-void OLED_Driver::Set_FillColor(uint16_t color)  {
-  
+void OLED_Driver::Set_FillColor(uint16_t color)  
+{
   color_fill_byte[0] = (uint8_t)(color >> 8);
   color_fill_byte[1] = (uint8_t)(color & 0x00ff);
 }
 
-void OLED_Driver::RAM_Address(void)  {
-  
+void OLED_Driver::RAM_Address(void)  
+{
   Write_Command(0x15);
   Write_Data(0x00);
   Write_Data(0x7f);
@@ -65,8 +62,8 @@ void OLED_Driver::RAM_Address(void)  {
   Write_Data(0x7f);
 }
 
-void OLED_Driver::Clear_Screen(void)  {
-  
+void OLED_Driver::Clear_Screen(void)  
+{
   int i,j;
   
   uint8_t clear_byte[] = {0x00, 0x00};
@@ -80,9 +77,8 @@ void OLED_Driver::Clear_Screen(void)  {
   }
 }
 
-
-void OLED_Driver::Fill_Color(uint16_t color)  {
-  
+void OLED_Driver::Fill_Color(uint16_t color)  
+{
   uint16_t i,j;
   RAM_Address();
   Write_Command(0x5C);
@@ -96,8 +92,8 @@ void OLED_Driver::Fill_Color(uint16_t color)  {
   }
 }
 
-void OLED_Driver::Set_Coordinate(uint16_t x, uint16_t y)  {
-
+void OLED_Driver::Set_Coordinate(uint16_t x, uint16_t y)  
+{
   if ((x >= SSD1351_WIDTH) || (y >= SSD1351_HEIGHT))
     return;
   //Set x and y coordinate
@@ -112,8 +108,8 @@ void OLED_Driver::Set_Coordinate(uint16_t x, uint16_t y)  {
   Write_Command(SSD1351_CMD_WRITERAM);
 }
 
-void OLED_Driver::Set_Address(uint8_t column, uint8_t row)  {
-  
+void OLED_Driver::Set_Address(uint8_t column, uint8_t row)  
+{
   Write_Command(SSD1351_CMD_SETCOLUMN);  
   Write_Data(column);  //X start 
   Write_Data(column); //X end 
@@ -123,8 +119,8 @@ void OLED_Driver::Set_Address(uint8_t column, uint8_t row)  {
   Write_Command(SSD1351_CMD_WRITERAM); 
 }
 
-void OLED_Driver::Write_text(uint8_t dat) {
-    
+void OLED_Driver::Write_text(uint8_t dat) 
+{
   uint8_t i;
     
   for(i=0;i<8;i++)  {
@@ -140,8 +136,8 @@ void OLED_Driver::Write_text(uint8_t dat) {
   }
 }
 
-void  OLED_Driver::Invert(bool v) {
-  
+void  OLED_Driver::Invert(bool v) 
+{
   if (v)
     Write_Command(SSD1351_CMD_INVERTDISPLAY);
   else
@@ -161,10 +157,8 @@ void OLED_Driver::Draw_Pixel(int16_t x, int16_t y)
   Write_Data(color_byte[1]);
 }
   
-
-  
-void OLED_Driver::begin(void) {
-
+void OLED_Driver::begin(void) 
+{
   pinMode(_cs_pin, OUTPUT);
   pinMode(_rst_pin, OUTPUT);
   pinMode(_dc_pin, OUTPUT);
@@ -248,11 +242,10 @@ void OLED_Driver::begin(void) {
   Clear_Screen();
   Write_Command(0xaf);   //display on
 }
-
-  
   
 // Draw a horizontal line ignoring any screen rotation.
-void OLED_Driver::Draw_FastHLine(int16_t x, int16_t y, int16_t length) {
+void OLED_Driver::Draw_FastHLine(int16_t x, int16_t y, int16_t length) 
+{
   // Bounds check
   if ((x >= SSD1351_WIDTH) || (y >= SSD1351_HEIGHT))
     return;
@@ -282,7 +275,8 @@ void OLED_Driver::Draw_FastHLine(int16_t x, int16_t y, int16_t length) {
 }
   
   // Draw a vertical line ignoring any screen rotation.
-void OLED_Driver::Draw_FastVLine(int16_t x, int16_t y, int16_t length)  {
+void OLED_Driver::Draw_FastVLine(int16_t x, int16_t y, int16_t length)  
+{
   // Bounds check
 
   uint16_t i;
@@ -313,8 +307,8 @@ void OLED_Driver::Draw_FastVLine(int16_t x, int16_t y, int16_t length)  {
 }
 
 
-void OLED_Driver::Display_Interface(void) {
-  
+void OLED_Driver::Display_Interface(void) 
+{
   uint16_t i,j,color;
   
   Set_Coordinate(0,1);
