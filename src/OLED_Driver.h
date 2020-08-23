@@ -72,7 +72,7 @@ extern uint8_t color_byte[2],color_fill_byte[2];
       inline void OLED_SCK(uint8_t x);
       inline void OLED_DIN(uint8_t x);
       
-      void Device_Init(void);
+      void begin(void);
       void Clear_Screen(void);
       void Fill_Color(uint16_t color);
       void Set_Coordinate(uint16_t x, uint16_t y);

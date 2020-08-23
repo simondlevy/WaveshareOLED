@@ -21,7 +21,7 @@ void setup()  {
   SPI.setClockDivider(SPI_CLOCK_DIV2);
   SPI.begin();
 
-  oled.Device_Init();
+  oled.begin();
   
   oled.Display_Interface();
   delay(3000);

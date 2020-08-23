@@ -174,7 +174,7 @@ void OLED_Driver::Draw_Pixel(int16_t x, int16_t y)
   
 
   
-void OLED_Driver::Device_Init(void) {
+void OLED_Driver::begin(void) {
 
   OLED_CS(LOW);
   OLED_RST(LOW);
