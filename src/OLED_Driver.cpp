@@ -2,6 +2,8 @@
 #include "ASCII_Font.h"
 
 #include <Arduino.h>
+#include <SPI.h>
+
 
 OLED_Driver::OLED_Driver(uint8_t cs_pin, uint8_t rst_pin, uint8_t dc_pin)  
 {
