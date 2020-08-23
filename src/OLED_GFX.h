@@ -14,8 +14,6 @@ class OLED_GFX : public virtual OLED_Driver {
 
         OLED_GFX(uint8_t cs_pin, uint8_t rst_pin, uint8_t dc_pin);
 
-        void Set_FontSize(FONT_SIZE size);
-
         void Set_Color_And_Write(uint16_t color);
 
         void Draw_Line(int16_t x0, int16_t y0, int16_t x1, int16_t y1);
