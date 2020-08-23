@@ -40,100 +40,18 @@ void OLED_Driver::Write_Command(uint8_t cmd)  {
 
 //  OLED_CS(LOW);
 
-#if  INTERFACE_4WIRE_SPI
-
   OLED_DC(LOW);
   SPI.transfer(cmd);
   OLED_DC(HIGH);
-
-#elif INTERFACE_3WIRE_SPI
-
-  uint8_t i;
-
-  OLED_SCK(LOW);
-  OLED_DIN(LOW);
-  OLED_SCK(HIGH);
-
-  for(i = 0x80; i > 0; i >>= 1) {
-
-    OLED_SCK(LOW);
-    
-    if(cmd & i)
-      OLED_DIN(HIGH);
-    else
-      OLED_DIN(LOW);
-    
-    OLED_SCK(HIGH);
-  }
-
-#endif
-
-//  OLED_CS(HIGH);
 }
 
 void OLED_Driver::Write_Data(uint8_t dat) {
 
-//  OLED_CS(LOW);
-
-#if  INTERFACE_4WIRE_SPI
 
   OLED_DC(HIGH);
   SPI.transfer(dat);
   OLED_DC(LOW);
-
-#elif INTERFACE_3WIRE_SPI
-
-  uint8_t i;
-
-  OLED_SCK(LOW);
-  OLED_DIN(HIGH);
-  OLED_SCK(HIGH);
-
-  for(i = 0x80; i > 0; i >>= 1) {
-
-    OLED_SCK(LOW);
-    
-    if(dat & i)
-      OLED_DIN(HIGH);
-    else
-      OLED_DIN(LOW);
-    OLED_SCK(HIGH);
-  }
-
-#endif
-
-//  OLED_CS(HIGH);
-
 }
-
-#if INTERFACE_3WIRE_SPI
-
-void OLED_Driver::Write_Data(uint8_t* dat_p, int length) {
-
-  uint16_t i;
-  uint8_t j;
-
-
-
-  for(i = 0; i < length; i++) {
-
-    OLED_SCK(LOW);
-    OLED_DIN(HIGH);
-    OLED_SCK(HIGH);
-  
-    for(j = 0x80; j > 0; j >>= 1) {
-
-      OLED_SCK(LOW);
-      if(dat_p[i] & j)
-        OLED_DIN(HIGH);
-      else
-        OLED_DIN(LOW);
-      OLED_SCK(HIGH);
-    }
-  }
-}
-
-#endif
 
 void OLED_Driver::Set_Color(uint16_t color)  {
   
@@ -167,12 +85,8 @@ void OLED_Driver::Clear_Screen(void)  {
   Write_Command(0x5C);
   for(i=0;i<128;i++)  {
     for(j=0;j<128;j++)  {
-#if INTERFACE_4WIRE_SPI
       Write_Data(clear_byte[0]);
       Write_Data(clear_byte[1]);
-#elif INTERFACE_3WIRE_SPI
-      Write_Data(clear_byte, 2);
-#endif
     }
   }
 }
@@ -186,13 +100,9 @@ void OLED_Driver::Fill_Color(uint16_t color)  {
   Set_FillColor(color);
   for(i = 0; i < 128; i++)  {
     for(j = 0; j < 128; j++)  {
-#if INTERFACE_4WIRE_SPI
       Write_Data(color_fill_byte[0]);
       Write_Data(color_fill_byte[1]);
-#elif INTERFACE_3WIRE_SPI
       Write_Data(color_fill_byte, 2);
-#endif
-
     }
   }
 }
@@ -230,12 +140,8 @@ void OLED_Driver::Write_text(uint8_t dat) {
     
   for(i=0;i<8;i++)  {
     if (dat & 0x01) {
-#if INTERFACE_4WIRE_SPI
       Write_Data(color_byte[0]);
       Write_Data(color_byte[1]);
-#elif INTERFACE_3WIRE_SPI
-      Write_Data(color_byte, 2);
-#endif
     }
     else  {
       Write_Data(0x00);
@@ -262,24 +168,13 @@ void OLED_Driver::Draw_Pixel(int16_t x, int16_t y)
   Set_Address(x, y);
   
   // transfer data
-#if INTERFACE_4WIRE_SPI
   Write_Data(color_byte[0]);
   Write_Data(color_byte[1]);
-#elif INTERFACE_3WIRE_SPI
-  Write_Data(color_byte, 2);
-#endif
-  
 }
   
 
   
 void OLED_Driver::Device_Init(void) {
-
-#if INTERFACE_3WIRE_SPI
-    
-    OLED_DC(LOW);
-  
-#endif
 
   OLED_CS(LOW);
   OLED_RST(LOW);
@@ -414,12 +309,8 @@ void OLED_Driver::Draw_FastVLine(int16_t x, int16_t y, int16_t length)  {
   Write_Command(SSD1351_CMD_WRITERAM);  
     
   for (i = 0; i < length; i++)  {
-#if INTERFACE_4WIRE_SPI
     Write_Data(color_byte[0]);
     Write_Data(color_byte[1]);
-#elif INTERFACE_3WIRE_SPI
-    Write_Data(color_byte, 2);
-#endif
   }
 }
 
