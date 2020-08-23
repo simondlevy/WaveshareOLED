@@ -1,9 +1,7 @@
 #include "OLED_Driver.h"
 #include "ASCII_Font.h"
 
-#if defined(ARDUINO)
 #include <Arduino.h>
-#endif
 
 uint8_t color_byte[2],color_fill_byte[2];
 

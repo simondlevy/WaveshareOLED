@@ -1,7 +1,6 @@
 #include "OLED_GFX.h"
 
-#include <SPI.h>
-
+// Pins
 static const uint8_t CS  = 5;
 static const uint8_t RST = 21;
 static const uint8_t DC  = 22;
