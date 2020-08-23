@@ -193,7 +193,7 @@ void setup(void)
     oled.Clear_Screen();
 
     oled.Set_Color(BLUE);
-    oled.print_String(20, 50, "Hello WaveShare !", FONT_5X8);
+    oled.print_String(20, 50, "Hello WaveShare !", OLED_GFX::FONT_5X8);
     delay(2000);
     oled.Clear_Screen();
 

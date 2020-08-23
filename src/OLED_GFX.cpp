@@ -4,7 +4,8 @@
 #include "stdlib.h"
 
 uint8_t Row,Column;
-FONT_SIZE Font_Size;
+
+OLED_GFX::FONT_SIZE Font_Size;
 
 OLED_GFX::OLED_GFX(uint8_t cs_pin, uint8_t rst_pin, uint8_t dc_pin)  
     : OLED_Driver(cs_pin, rst_pin, dc_pin) {
