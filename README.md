@@ -14,4 +14,4 @@ Changes I made to Greg's version:
 
 I have tested this library on the following boards:
 
-* TinyPICO
+* TinyPICO: VCC->5V; GND->GND; DIN->23 (MOSI); CLK->18 (SCK); CS->5 (SS); DC->22; RST->21
