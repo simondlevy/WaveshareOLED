@@ -34,18 +34,17 @@
 #define SSD1351_CMD_STOPSCROLL      0x9E
 #define SSD1351_CMD_STARTSCROLL     0x9F
 
-#define BLACK   0x0000
-#define BLUE    0x001F
-#define RED     0xF800
-#define GREEN   0x07E0
-#define CYAN    0x07FF
-#define MAGENTA 0xF81F
-#define WHITE   0xFFFF
-
 class OLED_Driver {
 
     public: 
 
+        static const uint16_t BLACK   = 0x0000;
+        static const uint16_t BLUE    = 0x001F;
+        static const uint16_t RED     = 0xF800;
+        static const uint16_t GREEN   = 0x07E0;
+        static const uint16_t CYAN    = 0x07FF;
+        static const uint16_t MAGENTA = 0xF81F;
+        static const uint16_t WHITE   = 0xFFFF;
         static const uint16_t YELLOW  = 0xFFE0;
 
         static const uint8_t SSD1351_WIDTH   = 128;
