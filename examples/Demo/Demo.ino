@@ -10,11 +10,6 @@ OLED_GFX oled(CS, RST, DC);
 
 void setup()  {
 
-  //Init GPIO
-  pinMode(CS, OUTPUT);
-  pinMode(RST, OUTPUT);
-  pinMode(DC, OUTPUT);
-
   oled.begin();
   
   oled.Display_Interface();

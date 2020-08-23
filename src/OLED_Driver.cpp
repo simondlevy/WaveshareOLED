@@ -180,6 +180,10 @@ void OLED_Driver::Draw_Pixel(int16_t x, int16_t y)
   
 void OLED_Driver::begin(void) {
 
+  pinMode(_cs_pin, OUTPUT);
+  pinMode(_rst_pin, OUTPUT);
+  pinMode(_dc_pin, OUTPUT);
+
   SPI.setDataMode(SPI_MODE0);
   SPI.setBitOrder(MSBFIRST);
   SPI.setClockDivider(SPI_CLOCK_DIV2);
