@@ -29,8 +29,8 @@ void OLED_GFX::print_String(uint8_t x, uint8_t y, const char *text, FONT_SIZE si
     }
 }
 
-void OLED_GFX::Display_String_8x16(uint8_t x, uint8_t y, const char *text) {
-
+void OLED_GFX::Display_String_8x16(uint8_t x, uint8_t y, const char *text) 
+{
     uint16_t i=0,j,k,n;
     if(x>120)  {
         x=1;
@@ -52,8 +52,8 @@ void OLED_GFX::Display_String_8x16(uint8_t x, uint8_t y, const char *text) {
     }
 } 
 
-void OLED_GFX::Display_String_5x8(uint8_t x, uint8_t y, const char *text)  {
-
+void OLED_GFX::Display_String_5x8(uint8_t x, uint8_t y, const char *text)  
+{
     uint8_t i=0,j,k;
 
     while(text[i]>0x00) {  
@@ -75,7 +75,8 @@ void OLED_GFX::Display_String_5x8(uint8_t x, uint8_t y, const char *text)  {
     }
 }
 
-void OLED_GFX::Draw_Line(int16_t x0, int16_t y0, int16_t x1, int16_t y1) {
+void OLED_GFX::Draw_Line(int16_t x0, int16_t y0, int16_t x1, int16_t y1) 
+{
     // Update in subclasses if desired!
     if(x0 == x1)  {
         if(y0 > y1) swap(y0, y1);
@@ -90,8 +91,8 @@ void OLED_GFX::Draw_Line(int16_t x0, int16_t y0, int16_t x1, int16_t y1) {
         Write_Line(x0, y0, x1, y1);
 }
 
-void OLED_GFX::Write_Line(int16_t x0, int16_t y0, int16_t x1, int16_t y1)  {
-
+void OLED_GFX::Write_Line(int16_t x0, int16_t y0, int16_t x1, int16_t y1)  
+{
     int16_t steep = abs(y1 - y0) > abs(x1 - x0);
 
     if (steep)  {
@@ -132,8 +133,8 @@ void OLED_GFX::Write_Line(int16_t x0, int16_t y0, int16_t x1, int16_t y1)  {
 }
 
 // Draw a rectangle
-void OLED_GFX::Draw_Rect(int16_t x, int16_t y, int16_t w, int16_t h) {
-
+void OLED_GFX::Draw_Rect(int16_t x, int16_t y, int16_t w, int16_t h) 
+{
     Draw_FastHLine(x, y, w);
     Draw_FastHLine(x, y+h-1, w);
     Draw_FastVLine(x, y, h);
@@ -141,8 +142,8 @@ void OLED_GFX::Draw_Rect(int16_t x, int16_t y, int16_t w, int16_t h) {
 }
 
 
-void OLED_GFX::Fill_Rect(uint16_t x, uint16_t y, uint16_t w, uint16_t h) {
-
+void OLED_GFX::Fill_Rect(uint16_t x, uint16_t y, uint16_t w, uint16_t h) 
+{
     if ((x >= SSD1351_WIDTH) || (y >= SSD1351_HEIGHT))
         return;
 
@@ -172,15 +173,15 @@ void OLED_GFX::Fill_Rect(uint16_t x, uint16_t y, uint16_t w, uint16_t h) {
     }
 }
 
-void OLED_GFX::Fill_Circle(int16_t x0, int16_t y0, int16_t r) {
-
+void OLED_GFX::Fill_Circle(int16_t x0, int16_t y0, int16_t r) 
+{
     Draw_FastVLine(x0, y0-r, 2*r+1);
     FillCircle_Helper(x0, y0, r, 3, 0);
 }
 
 // Used to do circles and roundrects
-void OLED_GFX::FillCircle_Helper(int16_t x0, int16_t y0, int16_t r, uint8_t corner, int16_t delta)  {
-
+void OLED_GFX::FillCircle_Helper(int16_t x0, int16_t y0, int16_t r, uint8_t corner, int16_t delta)  
+{
     int16_t f     = 1 - r;
     int16_t ddF_x = 1;
     int16_t ddF_y = -2 * r;
@@ -209,7 +210,8 @@ void OLED_GFX::FillCircle_Helper(int16_t x0, int16_t y0, int16_t r, uint8_t corn
 }
 
 // Draw a circle outline
-void OLED_GFX::Draw_Circle(int16_t x0, int16_t y0, int16_t r) {
+void OLED_GFX::Draw_Circle(int16_t x0, int16_t y0, int16_t r) 
+{
     int16_t f = 1 - r;
     int16_t ddF_x = 1;
     int16_t ddF_y = -2 * r;
@@ -243,7 +245,8 @@ void OLED_GFX::Draw_Circle(int16_t x0, int16_t y0, int16_t r) {
 }
 
 // Draw a rounded rectangle
-void OLED_GFX::Draw_RoundRect(int16_t x, int16_t y, int16_t w, int16_t h, int16_t r)  {
+void OLED_GFX::Draw_RoundRect(int16_t x, int16_t y, int16_t w, int16_t h, int16_t r)  
+{
     // smarter version
 
     Draw_FastHLine(x+r  , y    , w-2*r); // Top
@@ -257,7 +260,8 @@ void OLED_GFX::Draw_RoundRect(int16_t x, int16_t y, int16_t w, int16_t h, int16_
     DrawCircle_Helper(x+r    , y+h-r-1, r, 8);
 }
 
-void OLED_GFX::DrawCircle_Helper( int16_t x0, int16_t y0, int16_t r, uint8_t corner)  {
+void OLED_GFX::DrawCircle_Helper( int16_t x0, int16_t y0, int16_t r, uint8_t corner)  
+{
     int16_t f     = 1 - r;
     int16_t ddF_x = 1;
     int16_t ddF_y = -2 * r;
@@ -293,7 +297,8 @@ void OLED_GFX::DrawCircle_Helper( int16_t x0, int16_t y0, int16_t r, uint8_t cor
 }
 
 // Draw a triangle
-void OLED_GFX::Draw_Triangle(int16_t x0, int16_t y0, int16_t x1, int16_t y1, int16_t x2, int16_t y2)  {
+void OLED_GFX::Draw_Triangle(int16_t x0, int16_t y0, int16_t x1, int16_t y1, int16_t x2, int16_t y2)  
+{
     Draw_Line(x0, y0, x1, y1);
     Draw_Line(x1, y1, x2, y2);
     Draw_Line(x2, y2, x0, y0);
