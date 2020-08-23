@@ -11,7 +11,7 @@ class OLED_GFX : public virtual OLED_Driver {
   
   public:
       
-    OLED_GFX(void);
+    OLED_GFX(uint8_t cs_pin, uint8_t rst_pin, uint8_t dc_pin);
       
     void Set_FontSize(FONT_SIZE size);
     

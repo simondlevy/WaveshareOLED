@@ -6,16 +6,17 @@
 uint8_t Row,Column;
 FONT_SIZE Font_Size;
 
-OLED_GFX::OLED_GFX(void)  {
-  Row = 0;
-  Column = 0;
-  Font_Size = FONT_5X8;
-}
+OLED_GFX::OLED_GFX(uint8_t cs_pin, uint8_t rst_pin, uint8_t dc_pin)  
+    : OLED_Driver(cs_pin, rst_pin, dc_pin) {
+        Row = 0;
+        Column = 0;
+        Font_Size = FONT_5X8;
+    }
 
 void OLED_GFX::Set_FontSize(FONT_SIZE size) {
-  Font_Size = size;
+    Font_Size = size;
 }
-  
+
 void OLED_GFX::print_String(uint8_t x, uint8_t y, const char *text, FONT_SIZE size) {
 
   Font_Size = size;

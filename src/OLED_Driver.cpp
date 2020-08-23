@@ -8,7 +8,11 @@
 uint8_t color_byte[2],color_fill_byte[2];
 
 
-OLED_Driver::OLED_Driver(void)  {
+OLED_Driver::OLED_Driver(uint8_t cs_pin, uint8_t rst_pin, uint8_t dc_pin)  {
+
+    _cs_pin = cs_pin;
+    _rst_pin = rst_pin;
+    _dc_pin = dc_pin;
 }
 
 void OLED_Driver::OLED_CS(uint8_t x)  {

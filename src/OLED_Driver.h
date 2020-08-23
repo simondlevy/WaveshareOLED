@@ -64,7 +64,8 @@ extern uint8_t color_byte[2],color_fill_byte[2];
   class OLED_Driver {
     
     public: 
-      OLED_Driver(void);
+
+      OLED_Driver(uint8_t cs_pin, uint8_t rst_pin, uint8_t dc_pin);
 
       void OLED_CS(uint8_t x);
       void OLED_RST(uint8_t x);
@@ -98,6 +99,10 @@ extern uint8_t color_byte[2],color_fill_byte[2];
       void Display_Interface(void);
       
     private:  
+
+      uint8_t _cs_pin;
+      uint8_t _rst_pin;
+      uint8_t _dc_pin;
       
       void RAM_Address(void);
 
