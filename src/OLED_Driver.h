@@ -40,12 +40,13 @@
 #define GREEN   0x07E0
 #define CYAN    0x07FF
 #define MAGENTA 0xF81F
-#define YELLOW  0xFFE0
 #define WHITE   0xFFFF
 
 class OLED_Driver {
 
     public: 
+
+        static const uint16_t YELLOW  = 0xFFE0;
 
         static const uint8_t SSD1351_WIDTH   = 128;
         static const uint8_t SSD1351_HEIGHT  = 128;

@@ -20,7 +20,7 @@ static void testlines(void)
         delay(10);
     }
 
-    oled.Set_Color(YELLOW);
+    oled.Set_Color(OLED_GFX::YELLOW);
     oled.Clear_Screen();
     for (uint16_t x=0; x < OLED_GFX::SSD1351_WIDTH - 1; x+=6) {
         oled.Draw_Line(OLED_GFX::SSD1351_WIDTH - 1, 0, x, OLED_GFX::SSD1351_HEIGHT - 1);
@@ -65,7 +65,7 @@ static void lcdTestPattern(void)
                 oled.Set_Color_And_Write(RED);
             }
             else if(i<32) {
-                oled.Set_Color_And_Write(YELLOW);
+                oled.Set_Color_And_Write(OLED_GFX::YELLOW);
             }
             else if(i<48) {
                 oled.Set_Color_And_Write(GREEN);
@@ -213,7 +213,7 @@ void setup(void)
     testdrawrects();
     delay(1000);
 
-    testfillrects(BLUE,YELLOW);
+    testfillrects(BLUE,OLED_GFX::YELLOW);
     delay(1000);
 
 
