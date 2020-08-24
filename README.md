@@ -22,3 +22,12 @@ I have tested this library on the following boards:
     * CS => 5 (SS)
     * DC => 22
     * RST => 21
+
+* Teensy4.0: 
+    * VCC => 5V
+    * GND => GND
+    * DIN => 11 (MOSI)
+    * CLK => 13 (SCK)
+    * CS => 10 (CS)
+    * DC => 9
+    * RST => 8

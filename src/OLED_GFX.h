@@ -20,7 +20,7 @@ class OLED_GFX : public virtual OLED_Driver {
             FONT_8X16
         } FONT_SIZE;
 
-        OLED_GFX(uint8_t cs_pin, uint8_t rst_pin, uint8_t dc_pin);
+        OLED_GFX(uint8_t cs_pin, uint8_t dc_pin, uint8_t rst_pin);
 
         void Set_Color_And_Write(uint16_t color);
 

@@ -13,11 +13,11 @@
 #include <SPI.h>
 
 
-OLED_Driver::OLED_Driver(uint8_t cs_pin, uint8_t rst_pin, uint8_t dc_pin)  
+OLED_Driver::OLED_Driver(uint8_t cs_pin, uint8_t dc_pin, uint8_t rst_pin)  
 {
     _cs_pin = cs_pin;
-    _rst_pin = rst_pin;
     _dc_pin = dc_pin;
+    _rst_pin = rst_pin;
 }
 
 void OLED_Driver::OLED_CS(uint8_t x)  

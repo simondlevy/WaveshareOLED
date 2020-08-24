@@ -26,7 +26,7 @@ class OLED_Driver {
         static const uint8_t SSD1351_WIDTH   = 128;
         static const uint8_t SSD1351_HEIGHT  = 128;
 
-        OLED_Driver(uint8_t cs_pin, uint8_t rst_pin, uint8_t dc_pin);
+        OLED_Driver(uint8_t cs_pin, uint8_t dc_pin, uint8_t rst_pin);
 
         void begin(void);
         void Clear_Screen(void);
@@ -92,8 +92,8 @@ class OLED_Driver {
     private:  
 
         uint8_t _cs_pin;
-        uint8_t _rst_pin;
         uint8_t _dc_pin;
+        uint8_t _rst_pin;
 
         void RAM_Address(void);
 

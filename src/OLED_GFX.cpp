@@ -11,8 +11,8 @@
 
 #include "stdlib.h"
 
-OLED_GFX::OLED_GFX(uint8_t cs_pin, uint8_t rst_pin, uint8_t dc_pin)  
-    : OLED_Driver(cs_pin, rst_pin, dc_pin) 
+OLED_GFX::OLED_GFX(uint8_t cs_pin, uint8_t dc_pin, uint8_t rst_pin)  
+    : OLED_Driver(cs_pin, dc_pin, rst_pin) 
 {
 }
 

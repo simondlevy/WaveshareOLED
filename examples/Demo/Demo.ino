@@ -9,11 +9,11 @@
 #include "OLED_GFX.h"
 
 // Pins
-static const uint8_t CS  = 5;
-static const uint8_t RST = 21;
-static const uint8_t DC  = 22;
+static const uint8_t CS  = 10;
+static const uint8_t DC  = 9;
+static const uint8_t RST = 8;
 
-OLED_GFX oled(CS, RST, DC);
+OLED_GFX oled(CS, DC, RST);
 
 static void testlines(void)  
 {
